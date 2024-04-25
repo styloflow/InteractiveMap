@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Interactive Mapper</title>
+    <link rel="stylesheet" href="leaflet.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+
+    <div id="mapid"></div>
+
+    <script type="text/javascript" src="leaflet.js"></script>
+    <script type="text/javascript" src="leaflet-deepzoom.js"></script>  
+    <script type="text/javascript" src="main.js" defer async></script>
+
+    <div id="mainNav">
+      <a class="closeMainNavBtn menuBtn" data-menu-btn="close">x</a>
+      <img class="logo" src="images/logo.png" />
+      <br /><br />
+      <p>MouseWheel: zoom</p>
+      <p>Drag: pan map</p>
+      <p>Click: place marker</p>
+      <br />
+      <a class="discordBtn menuBtn" data-menu-btn="discord">Join Discord</a>
+      <!-- <a class="discordBtn" href="https://discord.gg/4yrNegm8WN" target="_blank">Questions/Comments? Join Discord</a> -->
+    </div>
+
+    <div id="creationModal">
+
+      <p class="modalTitle">Add a marker</p>
+
+      <div id="selectionContent">
+
+        <div id="markerInfo">
+          <label for="markerTitle">title</label><br>
+          <input type="text" id="markerTitle" name="markerTitle"><br>
+          <label for="markerDescription">description</label><br>
+          <textarea id="markerDescription" name="markerDescription"></textarea>
+        </div>
+
+        <div id="iconsCreate">
+          <input type="text" id="createSearchBar" onkeyup="filterCreateIcons()" placeholder="Filter">
+        </div>
+
+      </div>
+      <p class="extraInfo">Select an icon to confirm the marker.</p>
+      <a class="cancelBtn iconCreationBtn" data-icon-string="cancel" onClick="createMarker('cancel')">cancel</a>
+
+    </div>
+
+    <div id="editModal">
+      <p class="modalTitle">Edit marker</p>
+      <p id="editModalSelectedTitle"></p>
+
+      <div id="editContent">
+
+        <div id="markerInfoEdit">
+          <label for="markerTitleEdit">edit title</label><br>
+          <input type="text" id="markerTitleEdit" name="markerTitleEdit"><br>
+          <label for="markerDescriptionEdit">edit description</label><br>
+          <textarea id="markerDescriptionEdit" name="markerDescriptionEdit"></textarea>
+        </div>
+
+        <div id="iconsEdit">
+          <input type="text" id="editSearchBar" onkeyup="filterEditIcons()" placeholder="Filter">
+        </div>
+
+      </div>
+      <p class="extraInfo">Select an icon to confirm the edit.</p>
+      <a class="cancelBtn iconEditBtn" data-icon-string="cancel" onClick="editMarker('cancel')">cancel</a>
+    </div>
+
+    <div id="attribution"><a href="#" onclick='openAttribution();'>Interactive Mapper | Create your own map free</a></div>
+  </body>
+
+</html>
